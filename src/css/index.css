@@ -1,0 +1,12 @@
+body {
+  margin: 0;
+  padding: 0;
+  background: #C2EABD;
+  color: #1A1E1F;
+  font-family: 'Amiko', sans-serif;
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
