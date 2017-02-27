@@ -2,14 +2,13 @@ import React from 'react';
 import './css/ControlDisplay.css';
 
 const ControlDisplayProps = {
-  label: React.PropTypes.string.isRequired,
-  time: React.PropTypes.number.isRequired
+  label: React.PropTypes.string.isRequired
 }
 
-function ControlDisplay ({label, time}) {
+function ControlDisplay ({time}) {
   const timeInMins = time / 60;
   return (
-    <span className="session-time">{`${label} Time - ${timeInMins} minutes`}</span>
+    <span className="session-time">{`${timeInMins}`}</span>
   );
 }
 
