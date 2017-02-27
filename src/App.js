@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
-import './App.css';
+import './css/App.css';
 import CountdownDisplay from './CountdownDisplay';
+import Button from './Button';
+import ControlDisplay from './ControlDisplay';
 
 class App extends Component {
   constructor(){
@@ -95,19 +97,22 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <div>
-          <button onClick={this.decrementWorkTime}>-</button>
-          <span>{`Work Time - ${this.state.workTime / 60} minutes`}</span>
-          <button onClick={this.incrementWorkTime}>+</button>
+        <div className="heading">Pomodoro Timer</div>
+        <div className="controls">
+          <Button handleClick={this.decrementWorkTime} label={"-"} />
+          <ControlDisplay label={"Work"} time={this.state.workTime} />
+          <Button handleClick={this.incrementWorkTime} label={"+"} />
         </div>
-        <div>
-          <button onClick={this.decrementBreakTime}>-</button>
-          <span>{`Break Time - ${this.state.breakTime / 60} minutes`}</span>
-          <button onClick={this.incrementBreakTime}>+</button>
+        <div className="controls">
+          <Button handleClick={this.decrementBreakTime} label={"-"} />
+          <ControlDisplay label={"Break"} time={this.state.breakTime} />
+          <Button handleClick={this.incrementBreakTime} label={"+"} />
         </div>
-        <div><CountdownDisplay seconds={this.state.secondsRemaining} /></div>
-        <div><button onClick={this.startCountdown}>Start</button></div>
-        <div><button onClick={this.pauseCountdown}>Pause</button></div>
+        <CountdownDisplay seconds={this.state.secondsRemaining} />
+        <div>
+          <Button handleClick={this.startCountdown} label={"Start"} />
+          <Button handleClick={this.pauseCountdown} label={"Pause"} />
+        </div>
       </div>
     );
   }
