@@ -25,9 +25,9 @@ class App extends Component {
   // mount the component with default values and set counter to work time
   componentDidMount() {
     this.setState({
-      secondsRemaining: 120,
-      workTime: 120,
-      breakTime: 60
+      secondsRemaining: 1500,
+      workTime: 1500,
+      breakTime: 300
     });
   }
 
@@ -99,20 +99,24 @@ class App extends Component {
       <div className="App">
         <div className="heading">Pomodoro Timer</div>
         <div className="controls">
+          <div className="control-heading">Work Time</div>
           <Button handleClick={this.decrementWorkTime} label={"-"} />
-          <ControlDisplay label={"Work"} time={this.state.workTime} />
+          <ControlDisplay time={this.state.workTime} />
           <Button handleClick={this.incrementWorkTime} label={"+"} />
         </div>
         <div className="controls">
+          <div className="control-heading">Break Time</div>
           <Button handleClick={this.decrementBreakTime} label={"-"} />
-          <ControlDisplay label={"Break"} time={this.state.breakTime} />
+          <ControlDisplay time={this.state.breakTime} />
           <Button handleClick={this.incrementBreakTime} label={"+"} />
         </div>
-        <CountdownDisplay seconds={this.state.secondsRemaining} />
-        <div>
+        <CountdownDisplay seconds={this.state.secondsRemaining} session={this.state.isWorkTime} />
+        <div className="timer-controls">
           <Button handleClick={this.startCountdown} label={"Start"} />
           <Button handleClick={this.pauseCountdown} label={"Pause"} />
         </div>
+        <hr/>
+        <div className="footer">Built by <a href="https://github.com/d33con/">Oliver Bullen</a></div>
       </div>
     );
   }
