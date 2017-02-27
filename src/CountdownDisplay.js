@@ -2,6 +2,8 @@ import React from 'react';
 import MinuteDisplay from './MinuteDisplay';
 import SecondDisplay from './SecondDisplay';
 
+import './css/CountdownDisplay.css';
+
 const CountdownDisplayProps = {
   seconds: React.PropTypes.number.isRequired
 }
@@ -9,9 +11,12 @@ const CountdownDisplayProps = {
 function CountdownDisplay ({seconds}) {
   const minutesRemaining = Math.floor(seconds / 60);
   const secondsRemaining = seconds % 60;
+
   return (
-    <div>
-      <MinuteDisplay minutes={minutesRemaining} />:<SecondDisplay seconds={secondsRemaining} />
+    <div className="timer-container">
+      <div className="timer-display">
+        <MinuteDisplay minutes={minutesRemaining} />:<SecondDisplay seconds={secondsRemaining} />
+      </div>
     </div>
   );
 }
