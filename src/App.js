@@ -27,9 +27,9 @@ class App extends Component {
   // mount the component with default values and set counter to work time
   componentDidMount() {
     this.setState({
-      secondsRemaining: 100,
-      workTime: 100,
-      breakTime: 30
+      secondsRemaining: 1500,
+      workTime: 1500,
+      breakTime: 300
     });
   }
 
