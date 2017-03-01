@@ -1,6 +1,6 @@
 import React from 'react';
 
-const SecondDisplayProps = {
+SecondDisplay.propTypes = {
   seconds: React.PropTypes.number.isRequired
 }
 
@@ -9,7 +9,5 @@ function SecondDisplay ({seconds}) {
     <span>{`${seconds < 10 ? '0' : ''}${seconds}`}</span>
   );
 }
-
-SecondDisplayProps.propTypes = SecondDisplayProps.minutes;
 
 export default SecondDisplay;

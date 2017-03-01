@@ -1,6 +1,6 @@
 import React from 'react';
 
-const MinuteDisplayProps = {
+MinuteDisplay.propTypes = {
   minutes: React.PropTypes.number.isRequired
 }
 
@@ -9,7 +9,5 @@ function MinuteDisplay ({minutes}) {
     <span>{minutes}</span>
   );
 }
-
-MinuteDisplayProps.propTypes = MinuteDisplayProps.minutes;
 
 export default MinuteDisplay;

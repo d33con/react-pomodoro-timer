@@ -1,8 +1,9 @@
 import React from 'react';
+
 import './css/ControlDisplay.css';
 
-const ControlDisplayProps = {
-  label: React.PropTypes.string.isRequired
+ControlDisplay.propTypes = {
+  time: React.PropTypes.number.isRequired
 }
 
 function ControlDisplay ({time}) {
@@ -11,7 +12,5 @@ function ControlDisplay ({time}) {
     <span className="session-time">{`${timeInMins}`}</span>
   );
 }
-
-ControlDisplayProps.propTypes = ControlDisplayProps.time;
 
 export default ControlDisplay;
