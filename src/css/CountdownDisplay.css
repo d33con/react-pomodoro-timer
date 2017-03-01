@@ -1,17 +1,3 @@
-.timer-container {
-  font-size: 5rem;
-  border: 5px solid #222829;
-  border-radius: 50%;
-  width: 20rem;
-  height: 20rem;
-  position: relative;
-  margin: 40px auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: #ED245E;
-}
-
 .session-type {
   font-size: 2.5rem;
 }
