@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+
 import './css/App.css';
 import CountdownDisplay from './CountdownDisplay';
 import Button from './Button';
@@ -19,6 +20,7 @@ class App extends Component {
     this.decrementBreakTime = this.decrementBreakTime.bind(this);
     this.startCountdown = this.startCountdown.bind(this);
     this.pauseCountdown = this.pauseCountdown.bind(this);
+    this.resetCountdown = this.resetCountdown.bind(this);
     this.countdown = this.countdown.bind(this);
   }
 
@@ -94,6 +96,16 @@ class App extends Component {
     clearInterval(this.interval);
   }
 
+  // reset function
+  resetCountdown() {
+    clearInterval(this.interval);
+    if(this.state.isWorkTime) {
+      this.setState({secondsRemaining: this.state.workTime});
+    } else {
+      this.setState({secondsRemaining: this.state.breakTime});
+    }
+  }
+
   render() {
     return (
       <div className="App">
@@ -110,10 +122,15 @@ class App extends Component {
           <ControlDisplay time={this.state.breakTime} />
           <Button handleClick={this.incrementBreakTime} label={"+"} />
         </div>
-        <CountdownDisplay seconds={this.state.secondsRemaining} session={this.state.isWorkTime} />
+        <CountdownDisplay 
+          seconds={this.state.secondsRemaining} 
+          isWorkTime={this.state.isWorkTime}
+          workTime={this.state.workTime}
+          breakTime={this.state.breakTime} />
         <div className="timer-controls">
           <Button handleClick={this.startCountdown} label={"Start"} />
           <Button handleClick={this.pauseCountdown} label={"Pause"} />
+          <Button handleClick={this.resetCountdown} label={"Reset"} />
         </div>
         <hr/>
         <div className="footer">Built by <a href="https://github.com/d33con/">Oliver Bullen</a></div>
