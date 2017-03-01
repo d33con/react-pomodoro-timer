@@ -27,9 +27,9 @@ class App extends Component {
   // mount the component with default values and set counter to work time
   componentDidMount() {
     this.setState({
-      secondsRemaining: 1500,
-      workTime: 1500,
-      breakTime: 300
+      secondsRemaining: 100,
+      workTime: 100,
+      breakTime: 30
     });
   }
 
@@ -73,6 +73,7 @@ class App extends Component {
     this.interval = setInterval(() => {
       if (this.state.secondsRemaining <= 0 && this.state.isWorkTime === true) {
         // if it's the end of work time set timer to breakTime and start the countdown
+        document.getElementById("notification").play(); //play a sound
         this.setState({
           isWorkTime: false,
           secondsRemaining: this.state.breakTime
@@ -80,6 +81,7 @@ class App extends Component {
         this.startCountdown();
       } else if (this.state.secondsRemaining <= 0 && this.state.isWorkTime === false) {
         // if it's the end of break time set timer to workTime and start the countdown
+        document.getElementById("notification").play(); //play a sound
         this.setState({
           isWorkTime: true,
           secondsRemaining: this.state.workTime
@@ -109,6 +111,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        <audio id="notification" src="http://res.cloudinary.com/dyqqt0ksz/video/upload/v1442467945/Calendar_Notification_kx8gnj.ogg" preload="auto"></audio>
         <div className="heading">Pomodoro Timer</div>
         <div className="controls">
           <div className="control-heading">Work Time</div>
